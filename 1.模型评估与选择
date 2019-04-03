@@ -79,13 +79,17 @@
     另一种是将各混淆矩阵的对应元素平均，得到TP、FN、FP、TN的均值，记作avgTP、avgFN、avgFP、avgTN，然后得到“微查准率”、“微查全率”和“微F1”：
         micro-P = avgTP / avgTP + avgFP,
         micro-R = avgTP / avgTP + avgFN,
-        micro-F1 = 2 * micro-P * micro-R / micro-P + micro-R
+        micro-F1 = 2 * micro-P * micro-R / micro-P + micro-R.
         
     （3）ROC 与 AUC
     真正利率（True Positive Rate，简称TPR），真正例与真实正例的比例：TPR = TP / TP + FN，
     假正例率（False Positive Rate，简称FPR），假正例与真实反例的比例：FPR = FP / FP + TN。
     以TPR为纵轴，FPR为横轴，可做ROC（Receiver Operating Characteristic，受试者工作特征）曲线。
-        
+    AUC（Area Under ROC Curve），是ROC曲线下的面积，通过比较AUC可比较学习器的优劣。假定ROC的曲线是由坐标{(x1, y1), (x2, y2), ..., (xm, ym)}的点
+按顺序连接而形成(x1=0, xm=1)，则AUC可估算为：
+        AUC = 1/2 ∑ (x(i-1) - xi) * (yi + y(i+1)).
+    
+    （4）代价敏感错误率与代价曲线
     
     
    
